@@ -35,16 +35,7 @@ ROOMS = [
         name='main_experiment',
         display_name='Main Experiment',
         participant_label_file='_rooms/main_experiment.txt',
-    ),
-    dict(
-        name='chat_room',
-        display_name='チャットルーム',
-        participant_label_file='../_rooms/chat_room.txt',
-    ),
-    dict(
-        name='live_demo',
-        display_name='Room for live demo (no participant labels)',
-    ),    
+    ),  
 ]
 
 ADMIN_USERNAME = 'admin'
@@ -59,4 +50,5 @@ Here are some oTree games.
 SECRET_KEY = 'ookawazemi2025'
 
 INSTALLED_APPS = ['otree']
+
 
