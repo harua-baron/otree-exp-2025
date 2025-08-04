@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %} {% load otree %} {% block content %}
+{% block title %}{% endblock %}
+
+<p>
+15秒以内に『C:協力する』または『N:協力しない』を選択してください。
+お互いが協力するを選ぶと費用を選ぶ際にチャットで相談ができます。
+</p>
+
+<!-- プレイヤー選択 -->
+<form method="post">
+  {{ formfields }}
+  <!-- 次へボタンは非表示 -->
+  <button type="submit" style="display: none" id="hidden-submit">次へ</button>
+</form>
+{% endblock %} {% block scripts %} {% endblock %}

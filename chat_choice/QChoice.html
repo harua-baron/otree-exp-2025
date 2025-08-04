@@ -1,0 +1,23 @@
+{{ block title }}  {{ endblock }} {{ block content }}
+<h3>宿泊客数Qを選んでください</h3>
+
+<form method="post">
+  {{ formfields }}
+
+  <!-- 次へボタンを非表示にする -->
+  <style>
+    button[type="submit"] {
+      display: none;
+    }
+  </style>
+</form>
+
+<hr>
+<p style="font-size: 14px; margin-top: 20px;">
+  <strong>儲け</strong> = 宿泊客数 × 宿泊料 − キャンペーン費用<br>
+  <strong>宿泊料</strong> = 36 × 自分の温泉街に来る割合<br>
+  ※ 宿泊料またはあなたの温泉街の合計宿泊数が0以下になった場合、それらの値は自動的に<strong>0</strong>になります。
+</p>
+
+<script></script>
+{% endblock %}
