@@ -147,7 +147,7 @@ class Results(Page):
 
     def vars_for_template(self):
         return {
-            "price": (
+            "price": round(
                 self.player.group.P1
                 if self.player.market() == 1
                 else self.player.group.P2
@@ -200,3 +200,4 @@ page_sequence = [
     BreakPage1,
     BreakPage2,
 ]
+
