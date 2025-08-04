@@ -8,12 +8,6 @@ SESSION_CONFIGS = [
         num_demo_participants=4,
         app_sequence=['chat_choice'],
     ),
-     dict(
-        name='question', 
-        display_name="アンケート",
-        num_demo_participants=None,
-        app_sequence=['questionnaire'], 
-    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -65,3 +59,4 @@ Here are some oTree games.
 SECRET_KEY = 'ookawazemi2025'
 
 INSTALLED_APPS = ['otree']
+
