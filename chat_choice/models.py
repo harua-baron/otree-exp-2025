@@ -92,7 +92,7 @@ class Group(BaseGroup):
             self.P2 = 0
 
         for p in players:
-            price = self.P1 if p.market() == 1 else self.P2
+            price = round(self.P1) if p.market() == 1 else round(self.P2)
             raw_profit = price * p.q - p.e
             p.profit = round(max(0, raw_profit))  # 四捨五入
             p.payoff = p.profit  # payoffも整数で保存される
@@ -158,3 +158,4 @@ def check_timeout_and_missing_q(group: Group, **kwargs):
         if p.timed_out and p.q == 0:
             group.force_terminate = True
             break
+
