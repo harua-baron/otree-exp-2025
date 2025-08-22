@@ -2,7 +2,7 @@ from otree.api import Page, WaitPage
 from .models import Group, check_timeout_and_missing_e, check_timeout_and_missing_q
 
 
-class ChatPage(Page):
+class CooperationPage(Page):
     form_model = "player"
     form_fields = ["chat_choice"]
     timeout_seconds = 15
@@ -223,5 +223,6 @@ page_sequence = [
     BreakPage1,
     BreakPage2,
 ]
+
 
 
