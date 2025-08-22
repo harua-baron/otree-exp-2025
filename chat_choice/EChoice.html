@@ -5,7 +5,6 @@
 {% block content %}
 <h3>キャンペーン費用 E を選んでください</h3>
 
-
 <form method="post">
   {{ formfields }}
   <!-- 次へボタンを削除または非表示に -->
@@ -21,10 +20,13 @@
   <strong>儲け</strong> = 宿泊客数 × 宿泊料 − キャンペーン費用<br>
   <strong>あなたの温泉街に訪れるお客の割合</strong> = <span>あなたの温泉街の合計キャンペーン費用</span> / <span>２つの温泉街の合計キャンペーン費用</span><br>
   <strong>あなたの温泉街に訪れるお客数</strong> = 36 × あなたの温泉街に来る割合<br>
-  <strong>宿泊料</strong> = あなたの温泉街に訪れるお客数　- あなたの温泉街の合計宿泊サービス数<br>
+  <strong>宿泊料</strong> = あなたの温泉街に訪れるお客数 − あなたの温泉街の合計宿泊サービス数<br>
   ※ 宿泊料またはあなたの温泉街の合計宿泊数が0以下になった場合、それらの値は自動的に<strong>0</strong>になります。
 </p>
+{% endblock %}
 
-{% endblock %} {% block scripts %} {% endblock %｝
+{% block scripts %}
+{% endblock %}
+
 
 
