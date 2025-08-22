@@ -18,11 +18,10 @@ class CooperationChoiceWaitPage(WaitPage):
     # 処理なし
     pass
 
-
-class EChoice(Page):
+class ChatPage(Page):
     form_model = "player"
-    form_fields = ["e"]
-    timeout_seconds = 30
+    form_fields = []
+    timeout_seconds = 5
     live_method = "live_chat"
 
     # テンプレート（〜.html）に渡す変数
@@ -35,10 +34,33 @@ class EChoice(Page):
             # チームの協力が確立されているかどうかを判定
             "is_cooperation_established_for_team": is_cooperation,
             "chat_log": (
-                self.player.group.chat_log_team1
+                self.player.group.chat_log_team1 
                 if self.player.team() == 1
                 else self.player.group.chat_log_team2
             ),
+        }
+
+    def before_next_page(self):
+        if self.timeout_happened:
+            self.player.timed_out = True
+
+
+class EChoice(Page):
+    form_model = "player"
+    form_fields = ["e"]
+    timeout_seconds = 30  # 任意で制限時間を設定
+
+
+    def vars_for_template(self):
+        # チームの協力状況やチャットログも表示しても良い
+        is_cooperation = self.group.is_cooperation_established_for_team(self.player.team())
+        chat_log = (
+            self.player.group.chat_log_team1 if self.player.team() == 1 else self.player.group.chat_log_team2
+        )
+        return {
+            "is_cooperation_established_for_team": is_cooperation,
+            "chat_log": chat_log,
+            "team": self.player.team(),
         }
 
     def before_next_page(self):
@@ -186,8 +208,9 @@ class BreakPage2(Page):
 
 
 page_sequence = [
-    ChatPage,
+    CooperationPage,
     CooperationChoiceWaitPage,
+    ChatPage,
     EChoice,
     CheckTimeoutAndMissingE,  # この画面で「e値未選択&タイムアウト」のチェックを行う
     ResultsWaitPage1,
@@ -200,4 +223,5 @@ page_sequence = [
     BreakPage1,
     BreakPage2,
 ]
+
 
