@@ -100,7 +100,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    chat_choice = models.StringField(choices=C.CHAT_CHOICES, blank=True)
+    chat_choice = models.StringField(
+        choices=C.CHAT_CHOICES,
+        label="以下から選択してください",  # ← 画面に出る質問文
+        blank=True
+    )
     e = models.IntegerField(choices=C.E_CHOICES)
     q = models.IntegerField(choices=C.Q_CHOICES)
     profit = models.FloatField()
@@ -158,5 +162,6 @@ def check_timeout_and_missing_q(group: Group, **kwargs):
         if p.timed_out and p.q == 0:
             group.force_terminate = True
             break
+
 
 
