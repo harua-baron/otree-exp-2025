@@ -105,8 +105,14 @@ class Player(BasePlayer):
         label="以下から選択してください",  # ← 画面に出る質問文
         blank=True
     )
-    e = models.IntegerField(choices=C.E_CHOICES)
-    q = models.IntegerField(choices=C.Q_CHOICES)
+    e = models.IntegerField(
+        choices=C.E_CHOICES,
+        label="以下から選択してください"
+    )
+    q = models.IntegerField(
+        choices=C.Q_CHOICES,
+        label="以下から選択してください"
+    )
     profit = models.FloatField()
     chat_log = models.LongStringField(blank=True, default="")
     timed_out = models.BooleanField(initial=False)
@@ -162,6 +168,7 @@ def check_timeout_and_missing_q(group: Group, **kwargs):
         if p.timed_out and p.q == 0:
             group.force_terminate = True
             break
+
 
 
 
