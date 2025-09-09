@@ -7,7 +7,7 @@ class C(BaseConstants):
     NUM_ROUNDS = 14
     E_CHOICES = list(range(16, 38, 2))  # 16~36の偶数
     Q_CHOICES = [2, 4, 6, 8, 10]
-    CHAT_CHOICES = [("C", "C：協力する"), ("N", "N：協力しない")]  # チャット選択肢
+    CHAT_CHOICES = [("C", "協力する"), ("N", "協力しない")]  # チャット選択肢
 
 
 class Subsession(BaseSubsession):
@@ -158,4 +158,5 @@ def check_timeout_and_missing_q(group: Group, **kwargs):
         if p.timed_out and p.q == 0:
             group.force_terminate = True
             break
+
 
